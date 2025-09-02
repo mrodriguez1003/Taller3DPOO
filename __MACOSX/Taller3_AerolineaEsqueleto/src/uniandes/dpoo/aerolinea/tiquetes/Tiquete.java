@@ -5,18 +5,22 @@ import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
 
 public class Tiquete {
 	
-	 	private final String codigo;      
-	    private boolean usado;        
-	 
+	 	private final String codigo;  
+	 	private int tarifa;
+	    private boolean usado;  
+	    
+	    private Vuelo vuelo;
+	    private Cliente clienteComprador;
+	
 	    public Tiquete(String codigo, Vuelo vuelo, Cliente clienteComprador, int tarifa) {
 	        this.codigo = codigo;
 	        this.vuelo = vuelo;
-	        this.clienteComprador = cliente;
+	        this.clienteComprador = clienteComprador;
 	        this.tarifa = tarifa;
 	    }
 	    
 	    public Cliente getCliente() {
-	        return cliente;
+	        return clienteComprador;
 	    }
 	    
 	    public Vuelo getVuelo() {

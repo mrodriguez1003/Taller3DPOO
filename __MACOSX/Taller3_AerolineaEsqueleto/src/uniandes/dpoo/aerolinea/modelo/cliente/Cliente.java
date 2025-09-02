@@ -1,17 +1,17 @@
 package uniandes.dpoo.aerolinea.modelo.cliente;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import uniandes.dpoo.aerolinea.tiquetes.Tiquete;
 import uniandes.dpoo.aerolinea.modelo.Vuelo;
 
 public abstract class Cliente
 {
-    protected List<Tiquete> tiquetes;
+	protected Map<String, Tiquete> tiquetes;
 
     public Cliente() {
-        this.tiquetes = new ArrayList<>();
+        this.tiquetes = new HashMap<>();
     }
 
     public String getTipoCliente();
