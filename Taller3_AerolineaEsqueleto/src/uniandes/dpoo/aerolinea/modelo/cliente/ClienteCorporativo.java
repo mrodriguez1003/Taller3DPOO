@@ -8,9 +8,35 @@ import org.json.JSONObject;
 public class ClienteCorporativo extends Cliente
 {
     // TODO completar
+	
+	public String CORPORATIVO = "Corporativo";
+    public int GRANDE = 1;
+    public int MEDIANA = 2;
+    public int PEQUENA = 3;
     
+    private String nombreEmpresa;
+    private int tamanoEmpresa;
+    
+    public ClienteCorporativo(String nombreEmpresa, int tamano) {
+        this.nombreEmpresa = nombreEmpresa;
+        this.tamanoEmpresa = tamano;
+    }
+    
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
 
+    public int getTamanoEmpresa() {
+        return tamanoEmpresa;
+    }
 
+    public String getTipoCliente() {
+        return CORPORATIVO;
+    }
+
+    public String getIdentificador() {
+        return nombreEmpresa;
+    }
     /**
      * Crea un nuevo objeto de tipo a partir de un objeto JSON.
      * 
