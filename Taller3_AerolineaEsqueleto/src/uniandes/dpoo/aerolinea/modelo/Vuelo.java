@@ -2,7 +2,6 @@ package uniandes.dpoo.aerolinea.modelo;
 
 import java.util.Collection;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
 import uniandes.dpoo.aerolinea.modelo.tarifas.CalculadoraTarifas;
@@ -18,7 +17,8 @@ public class Vuelo {
 
     private Collection<Tiquete> tiquetes = new ArrayList<>();
 
-    public Vuelo(Ruta ruta, String fecha, Avion avion) {
+    public Vuelo(Ruta ruta, String fecha, Avion avion) 
+    {
         this.ruta = ruta; 
         this.fecha = fecha;
         this.avion = avion;
@@ -55,12 +55,12 @@ public class Vuelo {
         int disponibles = capacidad - tiquetes.size();
 
         if (cantidad > disponibles) {
-            throw new VueloSobrevendidoException("No hay cupos suficientes: solicitados " 
-                    + cantidad + ", disponibles " + disponibles);
+            Vuelo vueloActual = this;
+            throw new VueloSobrevendidoException(vueloActual);
         }
 
         int total = 0;
-        Vuelo vueloActual = this;   
+        Vuelo vueloActual = this;
 
         for (int i = 0; i < cantidad; i++) {
             int precio = calculadora.calcularTarifa(vueloActual, cliente);
@@ -74,7 +74,6 @@ public class Vuelo {
         }
         return total;
     }
-
 
     public boolean equals(Object obj) 
     {
@@ -106,5 +105,4 @@ public class Vuelo {
 
         return true;
     }
-    
 }

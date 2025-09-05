@@ -23,7 +23,7 @@ public class Aeropuerto
 	
 	private static Set<String> codigosUtilizados = new HashSet<String>;
 	
-	private static int RADIO_TERRESTRE = 6371;
+	private static final int RADIO_TERRESTRE = 6371;
 	
 	 public Aeropuerto(String nombre, String codigo, String nombreCiudad,double latitud, double longitud)
 	 	{

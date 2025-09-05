@@ -41,16 +41,19 @@ public class Ruta
 	        return horaLlegada;
 	    }
 	 
-	 public int getDuracion() {
-	        int horasSalida = getHoras(horaSalida);
-	        int minutosSalida = getMinutos(horaSalida);
-	        int horasLlegada = getHoras(horaLlegada);
-	        int minutosLlegada = getMinutos(horaLlegada);
+	 public int getDuracion()
+	    {
+	        int hs = getHoras(horaSalida);
+	        int ms = getMinutos(horaSalida);
+	        int hl = getHoras(horaLlegada);
+	        int ml = getMinutos(horaLlegada);
 
-	        int totalSalida = horasSalida * 60 + minutosSalida;
-	        int totalLlegada = horasLlegada * 60 + minutosLlegada;
+	        int inicio = hs * 60 + ms;
+	        int fin    = hl * 60 + ml;
 
-	        return totalLlegada - totalSalida;
+	        int dur = fin - inicio;
+	        if (dur < 0) dur += 24 * 60; 
+	        return dur;
 	    }
 
     /**
